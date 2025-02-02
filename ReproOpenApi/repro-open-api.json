@@ -1,0 +1,82 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "ReproOpenApi | v1",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/repro": {
+      "get": {
+        "tags": [
+          "ReproOpenApi"
+        ],
+        "operationId": "reproendpoint",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ChangesetDescDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "ChangesetDescDto": {
+        "required": [
+          "value1",
+          "value2"
+        ],
+        "type": "object",
+        "properties": {
+          "value1": {
+            "$ref": "#/components/schemas/ChangesetIntDto"
+          },
+          "value2": {
+            "$ref": "#/components/schemas/ChangesetIntDto2"
+          }
+        }
+      },
+      "ChangesetIntDto": {
+        "required": [
+          "added"
+        ],
+        "type": "object",
+        "properties": {
+          "added": {
+            "type": "array",
+            "items": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        }
+      },
+      "ChangesetIntDto2": {
+        "required": [
+          "added"
+        ],
+        "type": "object",
+        "properties": {
+          "added": {
+            "$ref": "#/components/schemas/#/items/properties/value1/properties/added"
+          }
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "ReproOpenApi"
+    }
+  ]
+}
