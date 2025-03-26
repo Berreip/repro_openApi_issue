@@ -42,7 +42,7 @@
             "$ref": "#/components/schemas/ChangesetIntDto"
           },
           "value2": {
-            "$ref": "#/components/schemas/ChangesetIntDto2"
+            "$ref": "#/components/schemas/ChangesetIntDto"
           }
         }
       },
@@ -58,17 +58,6 @@
               "type": "integer",
               "format": "int32"
             }
-          }
-        }
-      },
-      "ChangesetIntDto2": {
-        "required": [
-          "added"
-        ],
-        "type": "object",
-        "properties": {
-          "added": {
-            "$ref": "#/components/schemas/#/items/properties/value1/properties/added"
           }
         }
       }
